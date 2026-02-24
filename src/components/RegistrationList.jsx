@@ -81,14 +81,7 @@ function RegistrationList({ occasionId, participantId }) {
 
   return (
     <div>
-      <div className="d-flex justify-content-between mb-3">
-        <h2>Registrations</h2>
-        {!occasionId && !participantId && (
-          <Button variant="primary" onClick={() => {}}>
-            Add New Registration
-          </Button>
-        )}
-      </div>
+      
 
       <Table striped bordered hover responsive>
         <thead>
