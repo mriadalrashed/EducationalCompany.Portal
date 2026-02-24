@@ -7,7 +7,7 @@ export default defineConfig({
     port: 5173,
     proxy: {
       "/api": {
-        target: "https://localhost:7171",
+        target: "https://localhost:7059",
         changeOrigin: true,
         secure: false, // This is important for HTTPS with self-signed cert
         rewrite: (path) => path,
