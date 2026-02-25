@@ -1,39 +1,50 @@
 # 🎓 EducationalCompany.Portal
 
-A production-structured React administrative portal for managing an Educational Company ecosystem.
+A production-structured React administrative portal for managing the EducationalCompany ecosystem.
 
 This application provides full CRUD workflows for Courses, Course Occasions, Teachers, Participants, and Registrations, and integrates with a Clean Architecture .NET backend via a structured service layer.
 
 ---
 
-# 🧭 System Context
+## 🌍 Full System
 
-EducationalCompany.Portal is the frontend presentation layer of a larger system:
+This frontend is part of a full-stack system.
 
-Frontend (React)  
+👉 Backend Repository:  
+https://github.com/mriadalrashed/EducationalCompany.Api
+
+Frontend (React + Vite)  
 ⬇  
-Backend API (ASP.NET Core – Layered Architecture)  
+ASP.NET Core Minimal API  
 ⬇  
-Database
+PostgreSQL Database  
+
+---
+
+## 🧭 System Context
+
+EducationalCompany.Portal is the frontend presentation layer of a larger system.
 
 The frontend is intentionally designed to remain:
 
 - UI-focused
 - API-driven
-- Stateless beyond component state
+- Stateless beyond component-level state
 - Decoupled from backend implementation details
 
 ---
 
-# 🏗️ Architectural Overview
+## 🏗️ Architectural Overview
 
-## 1️⃣ Layered Frontend Structure
+### Layered Frontend Structure
 
 ```
 Pages → Components → Services → API
 ```
 
-### Pages Layer (`src/pages`)
+---
+
+### 📄 Pages Layer (`src/pages`)
 
 Responsible for:
 
@@ -45,7 +56,7 @@ No direct HTTP logic exists here.
 
 ---
 
-### Components Layer (`src/components`)
+### 🧩 Components Layer (`src/components`)
 
 Responsible for:
 
@@ -56,8 +67,8 @@ Responsible for:
 
 Forms are implemented using:
 
-- **Formik** (state handling)
-- **Yup** (schema validation)
+- **Formik** (form state management)
+- **Yup** (schema-based validation)
 
 This ensures:
 
@@ -67,7 +78,7 @@ This ensures:
 
 ---
 
-### Services Layer (`src/services/api.js`)
+### 🔌 Services Layer (`src/services/api.js`)
 
 Responsible for:
 
@@ -80,9 +91,9 @@ This isolates the UI from backend contract changes.
 
 ---
 
-# 🔌 API Communication Strategy
+## 🔄 API Communication Strategy
 
-## Base Configuration
+### Base Configuration
 
 ```javascript
 const API_BASE_URL = "/api";
@@ -92,92 +103,55 @@ The application uses a **Vite development proxy**, meaning:
 
 - Frontend calls `/api/...`
 - Vite forwards to backend
-- Avoids CORS complexity in development
+- Avoids CORS issues during development
 
 ---
 
-## Axios Interceptors
+### Axios Interceptors
 
-The application uses Axios interceptors to:
+Axios interceptors are used to:
 
 - Log requests
 - Handle global errors
 - Maintain consistent response handling
 
-This pattern enables:
+This enables:
 
 - Centralized error control
 - Future token injection
-- Observability expansion
+- Improved observability
 
 ---
 
-# 📡 Implemented Domain Modules
+## 📡 Implemented Domain Modules
 
-## Courses
-
+### 📚 Courses
 - Searchable listing
 - Full CRUD operations
 - Metadata display (duration, pricing)
 
-## Course Occasions
-
+### 📅 Course Occasions
 - Upcoming filter
 - Teacher assignment
 - Capacity status check
 - Registration aggregation
 
-## Registrations
-
+### 📝 Registrations
 - Status lifecycle management
 - Confirm / Cancel transitions
-- Participant-occasion relationship handling
+- Participant–occasion relationship handling
 
-## Participants
-
+### 👨‍🎓 Participants
 - Searchable CRUD
 - View with related registrations
 
-## Teachers
-
+### 🧑‍🏫 Teachers
 - Searchable CRUD
 - View with assigned occasions
 
 ---
 
-# 🧠 Engineering Decisions
-
-### Why Service Layer?
-
-To:
-
-- Avoid direct Axios usage inside components
-- Support future migration to different HTTP clients
-- Simplify testing and mocking
-
----
-
-### Why Formik + Yup?
-
-To:
-
-- Maintain declarative validation schemas
-- Prevent uncontrolled form state
-- Reduce manual validation logic
-
----
-
-### Why Modular Folder Structure?
-
-To:
-
-- Scale feature-by-feature
-- Support domain-based refactoring later
-- Improve onboarding readability
-
----
-
-# 🗂️ Project Structure
+## 🗂️ Project Structure
 
 ```
 src/
@@ -196,11 +170,12 @@ src/
 
 ## 📸 Application Preview
 
-![Courses Page](screenshots/Dashboard.jpg)
+### Courses Management
+![Courses Page](./screenshots/Dashboard.jpg)
 
 ---
 
-# ⚙️ Installation
+## ⚙️ Installation
 
 ```bash
 git clone https://github.com/mriadalrashed/EducationalCompany.Portal.git
@@ -209,17 +184,31 @@ npm install
 npm run dev
 ```
 
+Frontend runs on:
+
+```
+http://localhost:5173
+```
+
+⚠️ Ensure the backend API is running before starting the frontend.
+
 ---
 
-# 🏗️ Production Build
+## 🏗️ Production Build
 
 ```bash
 npm run build
 ```
 
-Output: `dist/`
+Output directory:
 
-# 🧩 Backend Compatibility
+```
+dist/
+```
+
+---
+
+## 🔗 Backend Compatibility
 
 Designed to integrate with:
 
@@ -228,11 +217,18 @@ Designed to integrate with:
 - Clean Architecture (.NET)
 - Layered separation
 - RESTful endpoints
+- PostgreSQL database
 
-The frontend remains agnostic to backend internal layering.
+The frontend remains agnostic to backend internal implementation details.
 
 ---
 
-# 📄 License
+## 📘 About This Project
 
-Academic project demonstrating proficiency in C#, database architecture, layered system design, and automated testing.
+Developed as part of an academic software engineering course, this project demonstrates practical proficiency in modern React development, REST API integration, modular frontend architecture, and real-world CRUD workflow implementation.
+
+---
+
+## 📄 License
+
+This project is for academic and educational purposes only.
