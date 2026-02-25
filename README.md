@@ -194,6 +194,12 @@ src/
 
 ---
 
+## 📸 Application Preview
+
+![Courses Page](screenshots/Dashboard.jpg)
+
+---
+
 # ⚙️ Installation
 
 ```bash
